@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Model Prediksi</title>
+    <style>
+        table {
+            width: 50%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th {
+            width: 30%;
+        }
+        input {
+            width: 90%;
+            padding: 8px;
+            margin: 5px 0;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h2 style="text-align: center;">Masukkan Data untuk Prediksi Biaya Asuransi Kesehatan Anda:</h2>
+    <form method="post" style="text-align: center;">
+        <table>
+            <tr>
+                <th><label for="age">Usia (age):</label></th>
+                <td><input type="text" name="input1" required></td>
+            </tr>
+            <tr>
+                <th><label for="sex">Jenis Kelamin (sex):</label></th>
+                <td>
+                    <select name="input2" required>
+                        <option value="1">Laki-laki</option>
+                        <option value="0">Perempuan</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th><label for="bmi">BMI (bmi):</label></th>
+                <td><input type="text" name="input3" required></td>
+            </tr>
+            <tr>
+                <th><label for="children">Jumlah Anak (children):</label></th>
+                <td><input type="text" name="input4" required></td>
+            </tr>
+            <tr>
+                <th><label for="smoker">Perokok (smoker):</label></th>
+                <td>
+                    <select name="input5" required>
+                        <option value="1">Ya</option>
+                        <option value="0">Tidak</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th><label for="region">Wilayah (region):</label></th>
+                <td>
+                    <select name="input6" required>
+                    <option value="0">Northeast</option>
+                    <option value="1">Northwest</option>
+                    <option value="2">Southeast</option>
+                    <option value="3">Southwest</option>
+                </select>
+            </td>
+            </tr>
+        </table>
+        <br>
+        <button type="submit">Prediksi</button>
+    </form>
+    
+    {% if prediction is not none %}
+        <h3 style="text-align: center;">Hasil Prediksi Biaya Asuransi Kesehatan: {{ prediction }}</h3>
+    {% endif %}
+</body>
+</html>
